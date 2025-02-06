@@ -1,3 +1,99 @@
+<div style="background: {{ section.settings.background }}; color: {{ section.settings.body_text }}; font-family: {{ section.settings.heading_font }}; font-size: {{ section.settings.font_size }}px; text-align: {{ section.settings.alignment }}; padding: 20px;">
+  
+  {% if section.settings.show_announcement %}
+    <p><strong>📢 Announcement:</strong> This is an announcement bar!</p>
+  {% endif %}
+
+  <h1 style="text-align: {{ section.settings.logo_aligment }};">Demo: Section Settings</h1>
+
+  <p><strong>🔢 Products per page:</strong> {{ section.settings.products_per_page }}</p>
+  <p><strong>📏 Font size:</strong> {{ section.settings.font_size }}px</p>
+  <p><strong>🖍️ Color Scheme:</strong> {{ section.settings.color_scheme }}</p>
+  <p><strong>↕️ Vertical Alignment:</strong> {{ section.settings.vertical_alignment }}</p>
+  <p><strong>📏 Size:</strong> {{ section.settings.sizes }}</p>
+
+  <h2>{{ section.settings.footer_linklist_title }}</h2>
+  <p>{{ section.settings.home_welcome_message }}</p>
+
+  {% if section.settings.article != blank %}
+    <p><strong>📰 Article Selected:</strong> <a href="{{ section.settings.article.url }}">{{ section.settings.article.title }}</a></p>
+  {% endif %}
+
+  {% if section.settings.blog != blank %}
+    <p><strong>✍️ Blog Selected:</strong> <a href="{{ section.settings.blog.url }}">{{ section.settings.blog.title }}</a></p>
+  {% endif %}
+
+  {% if section.settings.collection != blank %}
+    <p><strong>🛍 Collection:</strong> <a href="{{ section.settings.collection.url }}">{{ section.settings.collection.title }}</a></p>
+  {% endif %}
+
+  {% if section.settings.collection_list != blank %}
+    <h3>Collections:</h3>
+    <ul>
+      {% for collection in section.settings.collection_list %}
+        <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if section.settings.product != blank %}
+    <p><strong>🛒 Product:</strong> <a href="{{ section.settings.product.url }}">{{ section.settings.product.title }}</a></p>
+  {% endif %}
+
+  {% if section.settings.product_list != blank %}
+    <h3>Products:</h3>
+    <ul>
+      {% for product in section.settings.product_list %}
+        <li><a href="{{ product.url }}">{{ product.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if section.settings.video_embed != blank %}
+    <div>{{ section.settings.video_embed }}</div>
+  {% endif %}
+
+  {% if section.settings.video != blank %}
+    <video controls>
+      <source src="{{ section.settings.video }}" type="video/mp4">
+    </video>
+  {% endif %}
+
+  {% if section.settings.product_description_video != blank %}
+    <p><strong>🎥 Product Video:</strong> <a href="{{ section.settings.product_description_video }}">{{ section.settings.product_description_video }}</a></p>
+  {% endif %}
+
+  {% if section.settings.image_with_text_image != blank %}
+    <img src="{{ section.settings.image_with_text_image | img_url: 'medium' }}" alt="Selected Image" width="64px" height="64px">
+  {% endif %}
+
+  <p><strong>🔋 Battery Message:</strong> {{ section.settings.battery_message }}</p>
+
+  {% if section.settings.menu != blank %}
+    <h3>Menu:</h3>
+    <ul>
+      {% for link in section.settings.menu.links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <p><strong>📜 Rich Text:</strong> {{ section.settings.paragraph }}</p>
+  <p><strong>🖍️ Inline Rich Text:</strong> {{ section.settings.inline }}</p>
+
+  {% if section.settings.page != blank %}
+    <p><strong>📄 Page Selected:</strong> <a href="{{ section.settings.page.url }}">{{ section.settings.page.title }}</a></p>
+  {% endif %}
+
+  {% if section.settings.button_link != blank %}
+    <a href="{{ section.settings.button_link }}" class="btn">🔗 Visit</a>
+  {% endif %}
+
+  {% if section.settings.enable_payment_button %}
+    <p><strong>💳 Payment Button:</strong> Enabled</p>
+  {% endif %}
+</div>
+
 {% schema %}
 {
   "name": "Section settings",
