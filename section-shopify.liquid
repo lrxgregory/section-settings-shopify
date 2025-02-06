@@ -1,0 +1,99 @@
+<article class="{{ section.class }}">
+  <!-- Affichage du paramètre "header" -->
+  <h1>{{ section.settings.header }}</h1>
+
+  <!-- Explication pédagogique -->
+  <p>💡 <strong>Explication :</strong> Le titre ci-dessus est dynamique et modifiable dans l'éditeur Shopify.</p>
+
+  <!-- Vérification s'il y a des blocs -->
+  {% if section.blocks.size > 0 %}
+    <h2>Liste des slides</h2>
+    <div class="slides-container">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'slide' %}
+            <div class="slide" {{ block.shopify_attributes }}>
+              {% if block.settings.image %}
+                <img src="{{ block.settings.image | image_url: width: 800 }}" width="64px" height="64px" alt="Slide image">
+              {% else %}
+                <p>⚠️ Aucune image sélectionnée pour ce slide.</p>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>🚀 Ajoutez des slides dans l'éditeur Shopify pour voir les images ici.</p>
+  {% endif %}
+</article>
+
+{% stylesheet %}
+  .slides-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .slide img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', function () {
+    alert('📢 Section Shopify chargée avec succès !');
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Demo section Shopify",
+  "tag": "article",
+  "class": "ma-classe-demo",
+  "limit": 2,
+  "settings": [
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Header",
+      "default": "Demo section" 
+    }
+  ],
+  "blocks": [
+   {
+     "name": "Slide",
+     "type": "slide",
+     "limit": 1,
+     "settings": [
+       {
+         "type": "image_picker",
+         "id": "image",
+         "label": "Mon lable de block Image"
+       }
+     ]
+   }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Demo section Shopify",
+      "settings": {
+        
+      },
+      "blocks": [
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ],
+  "locales": {
+    "en": {
+      "text": "Hello"
+    },
+    "es": {
+      "text": "Hola"
+    }
+  },
+}
+{% endschema %}
