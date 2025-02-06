@@ -1,0 +1,249 @@
+{% schema %}
+{
+  "name": "Section settings",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "default": 20
+    },
+    {
+      "type": "radio",
+      "id": "logo_aligment",
+      "label": "Logo alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "centered",
+          "label": "Centered"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Vertical alignment",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "middle"
+    },
+    {
+      "type": "select",
+      "id": "sizes",
+      "label": "Sizes",
+      "options": [
+        {
+          "value": "xs",
+          "label": "X-small"
+        },
+        {
+          "value": "s",
+          "label": "Small"
+        },
+        {
+          "value": "m",
+          "label": "Medium"
+        },
+        {
+          "value": "l",
+          "label": "Large"
+        },
+        {
+          "value": "xl",
+          "label": "X-large"
+        },
+        {
+          "value": "xxl",
+          "label": "XX-large"
+        }
+      ],
+      "default": "m"
+    },
+    {
+      "type": "text",
+      "id": "footer_linklist_title",
+      "label": "Heading",
+      "default": "Quick links"
+    },
+    {
+      "type": "textarea",
+      "id": "home_welcome_message",
+      "label": "Welcome message",
+      "default": "Welcome to my shop!"
+    },
+    {
+      "type": "article",
+      "id": "article",
+      "label": "Article"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "Collections",
+      "limit": 8
+    },
+    {
+      "type": "color",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "#000000"
+    },
+    {
+      "type": "color_background",
+      "id": "background",
+      "label": "Background",
+      "default": "linear-gradient(#ffffff, #000000)"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "html",
+      "id": "video_embed",
+      "label": "Video embed"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_with_text_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "inline",
+      "default": "my <i>inline</i> <b>text</b>",
+      "label": "Inline rich text"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu"
+    },
+    {
+      "type": "liquid",
+      "id": "battery_message",
+      "label": "Battery message",
+      "default": "{% if product.tags contains 'battery' %}This product can only be shipped by ground.{% else %}This product can be shipped by ground or air.{% endif %}"
+    },
+    {
+      "type": "metaobject",
+      "id": "my_material_setting",
+      "label": "Material",
+      "metaobject_type": "shopify--material"
+    },
+    {
+      "type": "metaobject_list",
+      "id": "my_material_list_setting",
+      "label": "Materials",
+      "metaobject_type": "shopify--material",
+      "limit": 12
+    },
+    {
+      "type": "page",
+      "id": "page",
+      "label": "Page"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Products",
+      "limit": 12
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "center"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "A Shopify-hosted video"
+    },
+    {
+      "type": "video_url",
+      "id": "product_description_video",
+      "label": "Product description video",
+      "accept": ["youtube", "vimeo"]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_payment_button",
+      "label": "Show dynamic checkout button",
+      "info": "Each customer will see their preferred payment method [Learn more](https://help.shopify.com/manual/online-store/dynamic-checkout)",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section settings"
+    }
+  ]
+}
+{% endschema %}
